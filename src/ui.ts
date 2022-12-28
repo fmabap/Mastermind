@@ -231,7 +231,7 @@ function getColorOfPin(pin: Element): number {
     return color;
 }
 
-async function showCurPin() {
+function showCurPin() {
     let elementId = "gameRound" + JSON.stringify(curRound);
     let element = document.getElementById(elementId);
     let pinS = element?.getElementsByClassName("pinSet");
