@@ -1,2 +1,2 @@
-# MasterMind
-MasterMind
+# Mastermind
+Mastermind
