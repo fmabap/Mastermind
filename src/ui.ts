@@ -5,7 +5,7 @@ let curPin: number = 0;
 let curPins: number[] = [];
 let curColor: number = 0;
 /**
- * Set Goal pins in the ui
+ * Set goal pins in the ui
  * @param goal goal
  */
 export function setGoal(goal: goal) {
@@ -18,22 +18,27 @@ export function setGoal(goal: goal) {
     })
 }
 /**
- * Add Click Event to Pins
+ * Add click event to pins
  */
 export function addClickEventToPins() {
     let pins = document.getElementsByClassName("pinSel");
 
     for (let counter: number = 0; counter < pins.length; counter++) {
-        pins.item(counter)?.addEventListener("click", () => { clickSelectedPin(pins.item(counter)!); })
+        pins.item(counter)?.addEventListener("click", () => { clickSelectedPin(pins.item(counter)!); });
     }
-
-    ;
 }
+
+/**
+ * Add click event to undo
+ */
 export function addClickEventToUndo() {
     let undoDiv = document.getElementById("undo");
     undoDiv?.addEventListener("click", () => { undo(); });
 }
 
+/**
+ * Add click event to check
+ */
 export function addClickEventToCheck() {
     let checkDiv = document.getElementById("check");
     checkDiv?.addEventListener("click", async () => { await check(); });
@@ -56,9 +61,7 @@ export function showGameRounds(rounds: number) {
         }
         boardSection?.appendChild(gameRoundCloneDiv);
     }
-
 }
-
 
 /**
  * Click Selected Pin
@@ -188,17 +191,16 @@ async function setNextPin(pin: Element) {
     curColor = getColorOfPin(pin);
     curPins.push(curColor);
     showCurPin();
-    setUndoActive();
+    await setUndoActive();
     if (curPin === countGoalColors) {
-        setPinsInactive();
-        setCheckActive();
+        await setPinsInactive();
+        await setCheckActive();
     }
-
 }
 
 async function undo() {
     if (await isUndoActive()) {
-        await removeCurPin();
+        removeCurPin();
         curPin--;
         curPins.pop();
         if (curPins.length > 0) {
@@ -257,7 +259,7 @@ async function check() {
             await setCheckInactive();
             await setUndoInactive();
             await setPinsInactive();
-            await showGoalPins()
+            await showGoalPins();
             await showWon();
         }
         else {
@@ -268,7 +270,7 @@ async function check() {
                 await setCheckInactive();
                 await setUndoInactive();
                 await setPinsInactive();
-                await showGoalPins()
+                await showGoalPins();
                 await showLost();
             }
         }
@@ -280,7 +282,6 @@ async function setResultPins(result: checkResult) {
     let element = document.getElementById(elementId);
     let pinS = element?.getElementsByClassName("pinResult");
     let resultPinIndex: number = -1;
-
 
     if (result.rightColorAndPos > 0) {
         for (let counter = 1; counter <= result.rightColorAndPos; counter++) {
