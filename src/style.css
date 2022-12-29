@@ -19,34 +19,20 @@ body {
 
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 640px) {
     .content {
         display: flex;
     }
 
-    .actions {
-        position: static;
-        zoom: 60%
-    }
-
-    .board {
-        background-color: brown;
-        border: 2px solid white;
-        border-radius: 10px;
-        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
-        margin: auto;
-        zoom: 60%;
-    }
-}
-
-@media screen and (min-width: 381px) {
-    .content {
-        display: flex;
-    }
 
     .actions {
         position: static;
         zoom: 75%
+    }
+
+    .colorPinRow {
+        width: 72px;
+        height: 100%;
     }
 
     .board {
@@ -57,7 +43,24 @@ body {
         margin: auto;
         zoom: 75%;
     }
+
+    .button {
+        background-color: dimgray;
+        color: white;
+        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
+        width: 50px;
+        height: 1em;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border: 2px solid white;
+        border-radius: 10px;
+        text-align: center;
+    }
 }
+
 
 @media screen and (min-width: 641px) {
     .actions {
@@ -74,6 +77,28 @@ body {
         width: 330px;
         margin: auto;
     }
+
+    .colorPinRow {
+        display: flex;
+        width: 144px;
+        height: 100%;
+    }
+
+    .button {
+        background-color: dimgray;
+        color: white;
+        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
+        width: 120px;
+        height: 1em;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border: 2px solid white;
+        border-radius: 10px;
+        text-align: center;
+    }
 }
 
 
@@ -82,7 +107,7 @@ body {
     border: 1px solid white;
     border-radius: 10px;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
-    background-color: beige;
+    background-color: rgb(245, 245, 220);
     margin-bottom: 25px;
     margin-left: 20px;
     margin-right: 20px;
@@ -99,11 +124,7 @@ body {
     visibility: hidden;
 }
 
-.colorPinRow {
-    display: flex;
-    width: 144px;
-    height: 100%;
-}
+
 
 .pin {
     width: 50px;
@@ -126,7 +147,7 @@ body {
 }
 
 .pinColor2 {
-    background-color: yellow;
+    background-color: rgb(255, 255, 0)
 }
 
 .pinColor3 {
@@ -149,20 +170,7 @@ body {
     background-color: white
 }
 
-.button {
-    background-color: dimgray;
-    color: white;
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
-    width: 120px;
-    height: 1em;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border: 2px solid white;
-    border-radius: 10px;
-    text-align: center;
-}
+
 
 .disabled {
     filter: brightness(25%)
