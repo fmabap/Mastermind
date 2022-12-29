@@ -19,33 +19,64 @@ body {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 380px) {
     .content {
         display: flex;
     }
 
     .actions {
         position: static;
+        zoom: 60%
+    }
 
+    .board {
+        background-color: brown;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
+        margin: auto;
+        zoom: 60%;
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 381px) {
+    .content {
+        display: flex;
+    }
+
+    .actions {
+        position: static;
+        zoom: 75%
+    }
+
+    .board {
+        background-color: brown;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
+        margin: auto;
+        zoom: 75%;
+    }
+}
+
+@media screen and (min-width: 641px) {
     .actions {
         position: fixed;
         top: 66px;
     }
+
+    .board {
+
+        background-color: brown;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
+        width: 330px;
+        margin: auto;
+    }
 }
 
-.board {
 
-    background-color: brown;
-    border: 2px solid white;
-    border-radius: 10px;
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
-    width: 330px;
-    margin: auto;
-}
 
 .goal {
     border: 1px solid white;
