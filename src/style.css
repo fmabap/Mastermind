@@ -4,43 +4,51 @@ body {
 }
 
 .header {
+    position: static;
     background-color: cornflowerblue;
-    grid-area: header;
+    border: 2px solid white;
+    border-radius: 10px;
     color: white;
     font-size: x-large;
     text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-bottom: 10px;
-    width: 100%;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
     text-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
-}
-
-.content {
-    display: grid;
-    grid-template-areas:
-        'header header header header header header'
-        'actions board board board board board';
-    gap: 10px;
-
 
 }
 
-.actions {
-    grid-area: actions;
+@media screen and (max-width: 640px) {
+    .content {
+        display: flex;
+    }
+
+    .actions {
+        position: static;
+
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .actions {
+        position: fixed;
+        top: 66px;
+    }
 }
 
 .board {
+
     background-color: brown;
-    grid-area: board;
-    width: 360px;
-    margin: 10px;
-    ;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
+    width: 330px;
+    margin: auto;
 }
 
 .goal {
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 10px;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
     background-color: beige;
@@ -56,7 +64,7 @@ body {
     height: 100%;
 }
 
-.goalPinsHidden {
+.hidden {
     visibility: hidden;
 }
 
@@ -69,7 +77,9 @@ body {
 .pin {
     width: 50px;
     height: 50px;
-    margin: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 2px solid white;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
     border-radius: 50%;
@@ -100,13 +110,20 @@ body {
     background-color: blueviolet
 }
 
+.pinColorRightColorAndPos {
+    background-color: black
+}
+
+.pinColorRightColorOnly {
+    background-color: white
+}
+
 .button {
     background-color: dimgray;
     color: white;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
     width: 120px;
     height: 1em;
-    margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
     padding-top: 1em;
@@ -121,7 +138,7 @@ body {
 }
 
 .gameRound {
-    background-color: aqua;
+    background-color: lightskyblue;
     border: 1px solid white;
     border-radius: 10px;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
@@ -129,6 +146,7 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
+
 }
 
 .round {
@@ -139,7 +157,7 @@ body {
     height: 1.25rem;
     border: 2px solid white;
     border-radius: 33%;
-    background-color: chartreuse;
+    background-color: lightgray;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
     margin-top: 2.5px;
     margin-bottom: 2.5px;
@@ -186,4 +204,28 @@ body {
     box-shadow: inset -3px -3px 5px rgba(0, 0, 0, .5);
     border-radius: 50%;
     ;
+}
+
+.bar {
+    height: 5rem;
+    padding-top: 3rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: inset -3px -3px 5px rgba(0, 0, 0, .5);
+    text-align: center;
+    position: fixed;
+    align-self: center;
+    font-size: xx-large;
+    font-weight: bold;
+    width: 80%;
+    left: 10%;
+    top: 45%;
+}
+
+#won {
+    background-color: gold;
+}
+
+#lost {
+    background-color: brown;
 }

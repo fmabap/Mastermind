@@ -1,4 +1,5 @@
-import { countGoalColors, countRounds, goal } from "./game";
+import { checkResult, checkSet, countGoalColors, countRounds, goal } from "./game";
+import { getGoal } from "./main";
 let curRound: number = 0;
 let curPin: number = 0;
 let curPins: number[] = [];
@@ -248,15 +249,85 @@ function removeCurPin() {
 }
 
 async function check() {
+    let result: checkResult;
     if (await isCheckActive()) {
-        if (curRound < countRounds) {
-            await startNextRound();
-        }
-        else {
-            alert("End");
+        result = checkSet(getGoal(), curPins);
+        setResultPins(result);
+        if (result.won === true) {
             await setCheckInactive();
             await setUndoInactive();
             await setPinsInactive();
+            await showGoalPins()
+            await showWon();
+        }
+        else {
+            if (curRound < countRounds) {
+                await startNextRound();
+            }
+            else {
+                await setCheckInactive();
+                await setUndoInactive();
+                await setPinsInactive();
+                await showGoalPins()
+                await showLost();
+            }
         }
     }
+}
+
+async function setResultPins(result: checkResult) {
+    let elementId = "gameRound" + JSON.stringify(curRound);
+    let element = document.getElementById(elementId);
+    let pinS = element?.getElementsByClassName("pinResult");
+    let resultPinIndex: number = -1;
+
+
+    if (result.rightColorAndPos > 0) {
+        for (let counter = 1; counter <= result.rightColorAndPos; counter++) {
+            resultPinIndex++;
+            pinS?.item(resultPinIndex)?.classList.add("pinColorRightColorAndPos");
+        }
+    }
+
+    if (result.rightColorOnly > 0) {
+        for (let counter = 1; counter <= result.rightColorOnly; counter++) {
+            resultPinIndex++;
+            pinS?.item(resultPinIndex)?.classList.add("pinColorRightColorOnly");
+        }
+    }
+
+}
+
+async function setElementVisible(elementId: string) {
+    let element = document.getElementById(elementId);
+    element?.classList.remove("hidden");
+}
+
+async function showLost() {
+    await setElementVisible("lost");
+    setTimeout(() => { hideLost() }, 5000);
+}
+
+async function showWon() {
+    await setElementVisible("won");
+    setTimeout(() => { hideWon() }, 5000);
+}
+
+async function showGoalPins() {
+    await setElementVisible("goalPins");
+}
+
+async function setElementInvisible(elementId: string) {
+    let element = document.getElementById(elementId);
+    if (element?.classList.contains("hidden") !== true) {
+        element?.classList.add("hidden");
+    }
+}
+
+async function hideLost() {
+    await setElementInvisible("lost");
+}
+
+async function hideWon() {
+    await setElementInvisible("won");
 }

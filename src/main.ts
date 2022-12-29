@@ -15,7 +15,9 @@ function init() {
     startNextRound();
 }
 
-
+export function getGoal(): goal {
+    return goal;
+}
 
 
 
