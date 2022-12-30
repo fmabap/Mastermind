@@ -16,7 +16,7 @@ body {
     margin-bottom: 10px;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
     text-shadow: inset -5px -5px 10px rgba(0, 0, 0, .5);
-
+    cursor: pointer;
 }
 
 @media screen and (max-width: 640px) {
@@ -57,7 +57,14 @@ body {
         border: 2px solid white;
         border-radius: 10px;
         text-align: center;
+        cursor: pointer;
     }
+
+    #newGame {
+        padding-top: 0.5em;
+        padding-bottom: 1.5em;
+    }
+
 }
 
 
@@ -97,7 +104,12 @@ body {
         border: 2px solid white;
         border-radius: 10px;
         text-align: center;
+        cursor: pointer;
     }
+}
+
+#newGame {
+    margin-top: 50px;
 }
 
 .goal {
@@ -167,6 +179,10 @@ body {
 
 .disabled {
     filter: brightness(25%);
+}
+
+.pinSel {
+    cursor: pointer;
 }
 
 .gameRound {

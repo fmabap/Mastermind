@@ -45,6 +45,24 @@ export function addClickEventToCheck() {
 }
 
 /**
+ * Add click event to new game
+ */
+export function addClickEventToNewGame() {
+    let checkDiv = document.getElementById("newGame");
+    checkDiv?.addEventListener("click", async () => { newGame(); });
+}
+
+/**
+ * Add click event to header
+ */
+export function addClickEventToHeader() {
+    let checkDiv = document.getElementById("header");
+    checkDiv?.addEventListener("click", async () => { clickOnHeader(); });
+}
+
+
+
+/**
  * Show Game rounds 
  * @param rounds max. number of rounds
  */
@@ -331,4 +349,12 @@ async function hideLost() {
 
 async function hideWon() {
     await setElementInvisible("won");
+}
+
+function newGame() {
+    location.reload();
+}
+
+function clickOnHeader() {
+    window.location.href = "https://github.com/fmabap/Mastermind";
 }

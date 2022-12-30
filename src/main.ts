@@ -1,5 +1,5 @@
 import { countGoalColors, countColors, initGoal, goal, countRounds } from "./game";
-import { addClickEventToPins, addClickEventToUndo, addClickEventToCheck, setGoal, showGameRounds, startNextRound } from "./ui";
+import { addClickEventToPins, addClickEventToUndo, addClickEventToCheck, setGoal, showGameRounds, startNextRound, addClickEventToNewGame, addClickEventToHeader } from "./ui";
 let goal: goal;
 window.addEventListener("load", () => { init() });
 /**
@@ -9,6 +9,8 @@ function init() {
     addClickEventToPins();
     addClickEventToUndo();
     addClickEventToCheck();
+    addClickEventToNewGame();
+    addClickEventToHeader();
     showGameRounds(countRounds);
     goal = initGoal(countGoalColors, countColors);
     setGoal(goal);
