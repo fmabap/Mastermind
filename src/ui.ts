@@ -358,3 +358,50 @@ function newGame() {
 function clickOnHeader() {
     window.location.href = "https://github.com/fmabap/Mastermind";
 }
+
+export async function handleKeyboard() {
+
+    document.addEventListener('keydown', async (event) => {
+        if ((event.key === 'z' && event.ctrlKey === true) || event.key === 'Backspace') {
+            let undoActive = await isUndoActive();
+            if (undoActive) {
+                await undo();
+            }
+            event.preventDefault();
+            return;
+        }
+
+        if (event.key === 'n') {
+            newGame();
+            event.preventDefault();
+            return;
+        }
+
+        if (event.key === 'Enter' || event.code === 'Space') {
+            let checkActive = await isCheckActive()
+            if (checkActive) {
+                await check();
+            }
+            event.preventDefault();
+            return;
+        }
+
+        switch (event.key) {
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+                let pin = "pinColor" + (parseInt(event.key) - 1).toString();
+                let pinElements = <HTMLCollection>document.getElementsByClassName(pin);
+                let pinDiv = <HTMLDivElement>pinElements.item(0);
+                pinDiv.click();
+                event.preventDefault();
+                return;
+            default:
+                break;
+        }
+
+    }, false);
+}
