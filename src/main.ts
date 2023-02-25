@@ -25,7 +25,7 @@ function setText() {
     const divNewGame = <HTMLDivElement>document.getElementById("newGame");
     const divWon = <HTMLDivElement>document.getElementById("won");
     const divLost = <HTMLDivElement>document.getElementById("lost");
-    console.log(navigator.language);
+    // Check Browser Language
     if (navigator.language.indexOf("de") > -1) {
         if (window.innerWidth >= 640) {
             divUndo.innerText = "Rückgängig";
