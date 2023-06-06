@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mastermind Game">
-  <meta name="keywords" content="Mastermind">
-  <title>Mastermind</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mastermind Game">
+    <meta name="keywords" content="Mastermind">
+    <title>Mastermind</title>
 
-  <link rel="icon" href="./assets/favicon-68a629b2.png" type="image/png">
+    <link rel="icon" href="./assets/favicon-68a629b2.png" type="image/png">
 
-  <script src="./assets/index-718c683f.js"></script>
-  <link rel="stylesheet" href="./assets/index-fa8ac85d.css">
-</head>
+    <script src="./assets/index-f86be20b.js"></script>
+    <link rel="stylesheet" href="./assets/index-fa8ac85d.css">
+  </head>
 
-<body>
-  <div id="app">
-    <div id="header" class="header"><span>Mastermind</span></div>
-    <section class="content">
-      <section class="actions">
-        <form>
-          <div id="colorPins">
-            <div class="colorPinRow">
-              <div class="pin pinColor0 pinSel">
+  <body>
+    <div id="app">
+      <div id="header" class="header"><span>Mastermind</span></div>
+      <section class="content">
+        <section class="actions">
+          <form>
+            <div id="colorPins">
+              <div class="colorPinRow">
+                <div class="pin pinColor0 pinSel">
+                </div>
+                <div class="pin pinColor1 pinSel">
+                </div>
               </div>
-              <div class="pin pinColor1 pinSel">
+              <div class="colorPinRow">
+                <div class="pin pinColor2 pinSel">
+                </div>
+                <div class="pin pinColor3 pinSel">
+                </div>
+              </div>
+              <div class="colorPinRow">
+                <div class="pin pinColor4 pinSel">
+                </div>
+                <div class="pin pinColor5 pinSel">
+                </div>
               </div>
             </div>
-            <div class="colorPinRow">
-              <div class="pin pinColor2 pinSel">
-              </div>
-              <div class="pin pinColor3 pinSel">
-              </div>
+            <div id="undo" class="button ">Undo</div>
+            <div id="check" class="button">Check</div>
+            <div id="newGame" class="button">New Game</div>
+          </form>
+        </section>
+
+        <section id="board" class="board">
+          <div class="goal">
+            <div id="goalPins" class="goalPins hidden">
+              <div class="pinSet"> </div>
+              <div class="pinSet"> </div>
+              <div class="pinSet"> </div>
+              <div class="pinSet"> </div>
             </div>
-            <div class="colorPinRow">
-              <div class="pin pinColor4 pinSel">
+          </div>
+          <div id="gameRound1" class="gameRound">
+            <div class="round">1</div>
+            <div class="pinsSet">
+              <div class="pinSet"> </div>
+              <div class="pinSet"> </div>
+              <div class="pinSet"> </div>
+              <div class="pinSet"> </div>
+            </div>
+            <div class="pinsResult">
+              <div class="pinsResultRow">
+                <div class="pinResult"> </div>
+                <div class="pinResult"> </div>
               </div>
-              <div class="pin pinColor5 pinSel">
+              <div class="pinsResultRow">
+                <div class="pinResult"> </div>
+                <div class="pinResult"> </div>
               </div>
             </div>
           </div>
-          <div id="undo" class="button ">Undo</div>
-          <div id="check" class="button">Check</div>
-          <div id="newGame" class="button">New Game</div>
-        </form>
+        </section>
       </section>
 
-      <section id="board" class="board">
-        <div class="goal">
-          <div id="goalPins" class="goalPins hidden">
-            <div class="pinSet"> </div>
-            <div class="pinSet"> </div>
-            <div class="pinSet"> </div>
-            <div class="pinSet"> </div>
-          </div>
-        </div>
-        <div id="gameRound1" class="gameRound">
-          <div class="round">1</div>
-          <div class="pinsSet">
-            <div class="pinSet"> </div>
-            <div class="pinSet"> </div>
-            <div class="pinSet"> </div>
-            <div class="pinSet"> </div>
-          </div>
-          <div class="pinsResult">
-            <div class="pinsResultRow">
-              <div class="pinResult"> </div>
-              <div class="pinResult"> </div>
-            </div>
-            <div class="pinsResultRow">
-              <div class="pinResult"> </div>
-              <div class="pinResult"> </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <div id="won" class="hidden bar">You won</div>
-    <div id="lost" class="hidden bar ">You lost</div>
-  </div>
-</body>
+      <div id="won" class="hidden bar">You won</div>
+      <div id="lost" class="hidden bar ">You lost</div>
+    </div>
+  </body>
 
 </html>
